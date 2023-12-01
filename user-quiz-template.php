@@ -199,6 +199,19 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        .skip-btn-wrapper {
+            display: flex;
+            justify-content: right;
+        }
+
+        .skip-btn {
+            display: flex;
+            width: 2%;
+            padding: 30px;
+            cursor: pointer;
+            justify-content: right;
+        }
+
         @media screen and (max-width: 1050px) {
             .image-box {
                 height: 77px;
@@ -301,7 +314,11 @@
 </head>
 
 <body>
-
+    <div class='skip-btn-wrapper'>
+        <div onclick="skipTologin()" class='skip-btn'>
+            <h3> SKIP </h3>
+        </div>
+    </div>
     <div id="form-container">
         <div class="form-page" id="page1">
             <div>
@@ -824,6 +841,14 @@
             if (currentPage > 1) {
                 showPage(currentPage - 1);
             }
+        }
+        function skipTologin() {
+            console.log("Submit Skipped");
+            $('#form-container').fadeOut(500);
+            $('.skip-btn').fadeOut(500);
+            setTimeout(function () {
+                window.location.href = '<?php echo get_site_url(); ?>/login';
+            }, 1500); // 3000 milliseconds = 3 seconds
         }
 
         function submitForm() {
