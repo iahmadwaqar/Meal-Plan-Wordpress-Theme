@@ -240,6 +240,19 @@ function ajax_script()
 			'api_key' => _API_KEY
 		)
 	);
+
+	if (is_page('user-quiz')) {
+		wp_enqueue_style('user-quiz-design', get_template_directory_uri() . '/css/user-quiz-design.css', array(), _S_VERSION, 'all');
+		wp_enqueue_script('fontawesome-kit', 'https://kit.fontawesome.com/b5983e4169.js', array(), _S_VERSION, true);
+		wp_enqueue_script('user-quiz-ajax-script', get_template_directory_uri() . '/js/user-quiz-script.js', array('jquery'), _S_VERSION, true);
+		wp_localize_script(
+			'user-quiz-ajax-script',
+			'ajax_admin_url',
+			array(
+				'ajax_url' => admin_url('admin-ajax.php'),
+			)
+		);
+	}
 }
 add_action('wp_enqueue_scripts', 'ajax_script');
 
@@ -559,28 +572,23 @@ add_action("wp_ajax_update_user_data", "update_user_data");
  */
 function update_quiz_data()
 {
-	$weight = $_POST['weight'];
-	$height = $_POST['height'];
-	$age = $_POST['age'];
-	$daily_goal = $_POST['daily_goal'];
-	$activity_level = $_POST['activity_level'];
+	$field_name = $_POST['field_name'];
+	$field_value = $_POST['field_value'];
 
-	$_SESSION['user_quiz_data'] = [
-		'weight' => $weight,
-		'height' => $height,
-		'age' => $age,
-		'daily_goal' => $daily_goal,
-		'activity_level' => $activity_level
+	$user_quiz_data = [
+		$field_name => $field_value,
 	];
+	if (!isset($_SESSION['user_quiz_data'])) {
+		$_SESSION['user_quiz_data'] = array();
+	}
 
+
+	$_SESSION['user_quiz_data'] = array_merge($_SESSION['user_quiz_data'], $user_quiz_data);
 
 	$data = [
 		'status' => 'success',
-		'weight' => $weight,
-		'height' => $height,
-		'age' => $age,
-		'daily_goal' => $daily_goal,
-		'activity_level' => $activity_level
+		'field_name' => $field_name,
+		'field_value' => $_SESSION['user_quiz_data'][$field_name],
 	];
 
 	echo json_encode($data);
@@ -588,7 +596,6 @@ function update_quiz_data()
 }
 add_action("wp_ajax_nopriv_update_quiz_data", "update_quiz_data");
 add_action("wp_ajax_update_quiz_data", "update_quiz_data");
-
 
 /**
  * Calculate TDEE
@@ -714,13 +721,19 @@ add_action('user_register', 'update_user_meta_from_session');
 
 function update_user_meta_from_session($user_id)
 {
+	wp_remote_post(
+		'https://enzqp7yed9qj.x.pipedream.net',
+		array(
+			'body' => $$_SESSION['user_quiz_data'],
+		)
+	);
 	// Check if the session data exists
 	if (isset($_SESSION['user_quiz_data'])) {
 		// Get the session data
 		$user_quiz_data = $_SESSION['user_quiz_data'];
 
 		// Update user meta with the session data
-		update_user_meta($user_id, 'current-weight', $user_quiz_data['weight']);
+		update_user_meta($user_id, 'current-weight', $user_quiz_data['current-weight']);
 		update_user_meta($user_id, 'height', $user_quiz_data['height']);
 		update_user_meta($user_id, 'age', $user_quiz_data['age']);
 		update_user_meta($user_id, 'daily-goal', $user_quiz_data['daily_goal']);
