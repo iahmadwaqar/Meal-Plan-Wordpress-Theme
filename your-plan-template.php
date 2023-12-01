@@ -62,7 +62,7 @@ if (!empty($user_DRI)) {
     <div class="col2">
         <div class="meal-header">
             <div class="meal-plan-heading">
-                <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/Livello-23.png" />
+                <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>Livello-23.png" />
                 <h1>Hi<strong> There!</strong> This is your custom meal plan</h1>
             </div>
         </div>
@@ -71,7 +71,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/a159-1-768x742.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>a159-1-768x742.png">
                         </div>
                         <div class="category-item-heading">
                             <input oninput="this.style.width = (this.value.length+0.5) + 'ch';" class="editable-field"
@@ -88,7 +88,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/Livello-44.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>Livello-44.png">
                         </div>
                         <div class="category-item-heading">
                             <input oninput="this.style.width = (this.value.length+0.5) + 'ch';" class="editable-field"
@@ -106,7 +106,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item update-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/Livello-8.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>Livello-8.png">
                         </div>
                         <div class="category-item-heading">
                             <h1 class="category-item-h1" id='dee-goal'>
@@ -121,7 +121,7 @@ if (!empty($user_DRI)) {
                     <div class="category-item update-item">
                         <div class="category-item-icon">
                             <img
-                                src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/3d-icon-illustrations-startup-removebg-preview.png">
+                                src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>3d-icon-illustrations-startup-removebg-preview.png">
                         </div>
                         <div class="category-item-heading">
                             <h1 class="category-item-h1" id='dri-goal'>
@@ -138,7 +138,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/Target.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>Target.png">
                         </div>
                         <div class="category-item-heading">
                             <select class="select-field" name="daily-goal" id="daily-goal">
@@ -159,7 +159,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/Design.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>Design.png">
                         </div>
                         <div class="category-item-heading">
                             <select class="select-field" name="activity-level" id="activity-level">
@@ -179,7 +179,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/cake.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>cake.png">
                         </div>
                         <div class="category-item-heading">
                             <input oninput="this.style.width = (this.value.length+0.5) + 'ch';" class="editable-field"
@@ -195,7 +195,7 @@ if (!empty($user_DRI)) {
                 <div class="category-item-container">
                     <div class="category-item update-item">
                         <div class="category-item-icon">
-                            <img src="https://enjoyou.mubasharalee.com/wp-content/uploads/2023/09/LAST-PIECE-DROP.png">
+                            <img src="<?php echo get_template_directory_uri() . '/your-plan-page-images/'; ?>LAST-PIECE-DROP.png">
                         </div>
                         <div class="category-item-heading">
                             <h1 class="category-item-h1" id='water-intake'>

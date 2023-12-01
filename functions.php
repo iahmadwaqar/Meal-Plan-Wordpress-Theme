@@ -721,12 +721,6 @@ add_action('user_register', 'update_user_meta_from_session');
 
 function update_user_meta_from_session($user_id)
 {
-	wp_remote_post(
-		'https://enzqp7yed9qj.x.pipedream.net',
-		array(
-			'body' => $$_SESSION['user_quiz_data'],
-		)
-	);
 	// Check if the session data exists
 	if (isset($_SESSION['user_quiz_data'])) {
 		// Get the session data
