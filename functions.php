@@ -16,11 +16,8 @@ if (!defined('_S_VERSION')) {
 }
 
 if (!defined('_API_KEY')) {
-	// Replace the version number of the theme on each release.
-	//d81691b61dcf4844b4892eff70278ff8
-	// dec0ad06198d4c1a83c3a0f31c0c1f5e
-	// f945505133834a909b9efdb943d5a3e1
-	define('_API_KEY', 'f945505133834a909b9efdb943d5a3e1');
+	// Replace the api placeholder with api from spoonacular (https://spoonacular.com/food-api/docs)
+	define('_API_KEY', 'api placeholder');
 }
 add_action('template_redirect', 'ten11_if_user_not_logged_in');
 add_filter('login_redirect', 'ten11_if_user_not_logged_in', 10, 3);
