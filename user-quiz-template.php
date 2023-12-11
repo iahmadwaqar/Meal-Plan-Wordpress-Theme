@@ -38,7 +38,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            margin-top: 5vh;
             align-items: center;
         }
 
